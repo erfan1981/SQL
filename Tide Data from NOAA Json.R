@@ -9,4 +9,11 @@ lev <- mdata[seq(2,length(mdata$value),2),1]
 lev1 <- as.numeric(as.character(lev))
 timeStamp <-  strftime(t,"%Y-%m-%d %H:%M:%S")
 timeStamp <-  strptime(timeStamp,"%Y-%m-%d %H:%M:%S")
-plot(timeStamp, lev1)+ lines(timeStamp, lev1)
+ti <- timeStamp-timeStamp[1]
+z <- lev1- ave(lev1)
+#plot(ti, z)+ lines(ti, z)
+i <- (0:(length(ti)-1))
+maxti <- as.numeric(as.character(max(ti)))
+x <- i/maxti
+yfreq <- 2/(length(ti)-1)*Mod(fft(z))
+plot(x, yfreq, xlim=c(0, 0.0001))+ lines(x, yfreq)
