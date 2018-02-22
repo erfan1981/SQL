@@ -1,3 +1,4 @@
+CREATE TABLE qry_GW_arsenic AS
 SELECT "StatID", "SampID_NEW", "Analyte", "Result", "Matrix"
 FROM
 public."tbl_Samples-Soil-GW"
